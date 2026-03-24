@@ -35,6 +35,13 @@ elif menu=='Peek at the data':
     st.write('Le nombre de consommateurs est de :',data.shape[0])
     st.write('Le nombre de types saveurs est de :',data.shape[1])
 
+    st.header('Distribution des ventes de Robusta')
+    figure,ax=plt.subplots()
+    data['Robusta'].hist(bins=20, color='blue', edgecolor='black', ax=ax)
+    ax.set_xlabel('Quantité de Robusta')
+    ax.set_ylabel('Nombre de transactions')
+    st.pyplot(figure)
+    
 
 else:
     st.write('Chargement en cours...')

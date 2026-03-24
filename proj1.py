@@ -41,6 +41,37 @@ elif menu=='Peek at the data':
     ax.set_xlabel('Quantité de Robusta')
     ax.set_ylabel('Nombre de transactions')
     st.pyplot(figure)
+
+    st.subheader('Les valeurs aberrantes:')
+    df=data.select_dtypes(include="number")
+    resultat= []
+
+    for col in df.columns:
+        Q1 = np.percentile(df[col], 25)
+        Q2 = np.percentile(df[col], 50)  # médiane
+        Q3 = np.percentile(df[col], 75)
+    
+        IQR = Q3 - Q1
+        born_inf = Q1 - 1.5 * IQR
+        born_sup = Q3 + 1.5 * IQR
+    
+        nb_out_inf = np.sum(df[col] < born_inf)
+        nb_out_sup = np.sum(df[col] > born_sup)
+        nb_total = nb_out_inf + nb_out_sup
+    
+        resultat.append({
+            'colonne': col,
+            'Q1': Q1,
+            'Q2 (médiane)': Q2,
+            'Q3': Q3,
+            'IQR': IQR,
+            'borne_inf': born_inf,
+            'borne_sup': born_sup,
+            'nb_out_inf': nb_out_inf,
+            'nb_out_sup': nb_out_sup,
+            'Total_outliers': nb_total
+        })
+    st.dataframe(resultat)
     
 
 else:

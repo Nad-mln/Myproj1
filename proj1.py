@@ -17,3 +17,16 @@ st.markdown(
     </div>
     """,unsafe_allow_html=True
     )
+
+chemin='BeansDataSet.csv'
+col=['Channel','Region','Robusta','Arabica','Espresso','Lungo','Latte','Cappuccino']
+ligne=[f'consommateur_{x}' for x in range(1, 441)]
+data= read_csv(chemin)
+data.index=ligne
+
+if menu=='Les données':
+    st.write("Voici les données de Beans & Pods:")
+    st.dataframe(data)
+
+else:
+    st.write('Chargement en cours...')

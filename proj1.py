@@ -41,6 +41,19 @@ elif menu=='Peek at the data':
     ax.set_xlabel('Quantité de Robusta')
     ax.set_ylabel('Nombre de transactions')
     st.pyplot(figure)
+
+elif menu=='Visualisation':
+    st.header("Visualisation des données")
+    st.subheader("Histogramme de la distribution de toutes les saveurs")
+    data.hist(bins=20,figsize=(15,10),grid=True,layout=(3,3),color='blue')
+    st.pyplot(plt.gcf())
+ 
+    st.subheader("Histogramme de la distribution du Cappuccino")
+    figure,ax=plt.subplots(figsize=(15,15))
+    ax.hist(data['Cappuccino'], bins=20, color='orange', edgecolor='black')
+    ax.set_xlabel('Quantité de Cappuccino')
+    ax.set_ylabel('Nombre de consommateurs')
+    st.pyplot(figure)
     
 
 else:

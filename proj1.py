@@ -28,5 +28,13 @@ if menu=='Les données':
     st.write("Voici les données de Beans & Pods:")
     st.dataframe(data)
 
+elif menu=='Peek at the data':
+    st.header("Aperçu des données")
+    st.subheader("Affichage des premières et dernières lignes du dataset 'Beans & Pods'")
+    data.shape
+    st.write('Le nombre de consommateurs est de :',data.shape[0])
+    st.write('Le nombre de types saveurs est de :',data.shape[1])
+
+
 else:
     st.write('Chargement en cours...')

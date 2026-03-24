@@ -41,6 +41,18 @@ elif menu=='Peek at the data':
     ax.set_xlabel('Quantité de Robusta')
     ax.set_ylabel('Nombre de transactions')
     st.pyplot(figure)
+
+elif menu=='Statistiques':
+    st.header("Statistiques descriptives")
+    st.write(data.describe())
+    st.header('La Moyenne: ')
+    st.write(data.select_dtypes(include=np.number).mean())
+
+elif menu=='Corrélation': 
+    st.header('La corrélation de Pearson')
+    figure,ax=plt.subplots(figsize=(15,15))
+    sns.heatmap(data.corr(method='pearson',numeric_only=True),annot=True,fmt='.2f',cmap='coolwarm',ax=ax)
+    st.pyplot(figure)
     
 
 else:

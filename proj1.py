@@ -6,7 +6,6 @@ import pandas as pd
 import seaborn as sns
 from pandas.plotting import scatter_matrix
  
- 
 st.sidebar.title("Statistiques descriptives de Beans et Pods")
 menu=st.sidebar.selectbox("Navigation",['Les données','Peek at the data','Statistiques','Corrélation','Visualisation','Conclusion'])
 st.markdown(

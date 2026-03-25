@@ -40,6 +40,20 @@ elif menu=='Peek at the data':
     ax.set_xlabel('Quantité de Robusta')
     ax.set_ylabel('Nombre de transactions')
     st.pyplot(figure)
+
+    st.subheader("Récapitulatif")
+    if canal_ventes['Online'] > canal_ventes['Store']:
+        st.write(f"Le canal qui génère le plus de ventes est : **Online**")
+    else:
+        st.write(f"Le canal qui génère le plus de ventes est : **Store**")
+    
+    
+    if region_ventes['South'] > region_ventes['North'] and region_ventes['South'] > region_ventes['Central']:
+        st.write(f"La région qui génère le plus de ventes est : **South**")
+    elif region_ventes['North'] > region_ventes['South'] and region_ventes['North'] > region_ventes['Central']:
+        st.write(f"La région qui génère le plus de ventes est : **North**")
+    else:
+        st.write(f"La région qui génère le plus de ventes est : **Central**")
     
 
 else:

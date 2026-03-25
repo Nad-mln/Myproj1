@@ -192,10 +192,10 @@ elif menu=='Conclusion':
     st.write("""
     Pour enrichir les futures analyses, il serait pertinent de collecter :
     
-    - Prix unitaires des produits
-    - Montant total du panier
+    - Prix unitaires de chaque produit
     - Promotions ou réductions appliquées sur les produits
     - Age des clients
+    - Genre des clients
     - Situation professionnelle des clients
     - Fréquence d'achat des clients
              
